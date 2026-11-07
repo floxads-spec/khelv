@@ -2,26 +2,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1464094669037370');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1464094669037370&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Redirecting...</title>
+
+<title>Continue to Website</title>
 
 <style>
 * {
@@ -30,24 +14,127 @@ src="https://www.facebook.com/tr?id=1464094669037370&ev=PageView&noscript=1"
   box-sizing: border-box;
 }
 
-html, body {
-  width: 100%;
-  height: 100%;
-  background: #ffffff;
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #0b0d16;
+  font-family: Arial, sans-serif;
+  color: white;
 }
+
+.container {
+  width: 90%;
+  max-width: 420px;
+  text-align: center;
+  padding: 30px 20px;
+}
+
+h1 {
+  font-size: 27px;
+  margin-bottom: 15px;
+}
+
+p {
+  color: #aab1c5;
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+.button {
+  display: block;
+  width: 100%;
+  padding: 17px;
+  background: #1877f2;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: bold;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.button:disabled {
+  opacity: 0.6;
+}
+
 </style>
 
+<!-- META PIXEL -->
 <script>
-(function () {
-  const destination =
-    "https://www.khelv5.com/#/register?invitationCode=92358104013";
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function()
+{n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];
+t=b.createElement(e);t.async=!0;
+t.src=v;
+s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)
+}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
 
-  window.location.replace(destination);
-})();
+fbq('init', '1464094669037370');
+fbq('track', 'PageView');
 </script>
+
+<noscript>
+<img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1464094669037370&ev=PageView&noscript=1"/>
+</noscript>
+<!-- END META PIXEL -->
+
 </head>
 
 <body>
+
+<div class="container">
+
+<h1>Welcome</h1>
+
+<p>
+Click the button below to continue to the destination website.
+</p>
+
+<button class="button" id="continueBtn">
+Continue
+</button>
+
+</div>
+
+<script>
+const button = document.getElementById("continueBtn");
+
+const destination =
+"https://www.khelv5.com/#/register?invitationCode=92358104013";
+
+let clicked = false;
+
+button.addEventListener("click", function() {
+
+  if (clicked) return;
+
+  clicked = true;
+  button.disabled = true;
+  button.textContent = "Please wait...";
+
+  if (typeof fbq === "function") {
+    fbq('trackCustom', 'ContinueButtonClick', {}, {
+      eventID: 'continue-' + Date.now()
+    });
+  }
+
+  setTimeout(function() {
+    window.location.href = destination;
+  }, 1200);
+
+});
+</script>
+
 </body>
 </html>
-
