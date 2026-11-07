@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Subscribe Now</title>
+<title>Redirecting...</title>
 
 <style>
 * {
@@ -13,106 +13,23 @@
   box-sizing: border-box;
 }
 
-body {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #0b0d16;
-  color: white;
-  font-family: Arial, sans-serif;
-  padding: 20px;
-}
-
-.container {
+html, body {
   width: 100%;
-  max-width: 420px;
-  padding: 35px 25px;
-  text-align: center;
-  background: #171b2a;
-  border: 1px solid #30374d;
-  border-radius: 18px;
-}
-
-h1 {
-  font-size: 30px;
-  margin-bottom: 15px;
-}
-
-p {
-  color: #b8c0d4;
-  line-height: 1.6;
-  margin-bottom: 25px;
-}
-
-.subscribe-btn {
-  display: block;
-  width: 100%;
-  padding: 16px;
-  background: #087cff;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  font-size: 18px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.subscribe-btn:hover {
-  background: #0064d6;
+  height: 100%;
+  background: #ffffff;
 }
 </style>
 
-<!-- META PIXEL -->
 <script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){
-n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)
-}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
+(function () {
+  const destination =
+    "https://www.khelv5.com/#/register?invitationCode=92358104013";
 
-fbq('init', '1464094669037370');
-fbq('track', 'PageView');
+  window.location.replace(destination);
+})();
 </script>
-
-<noscript>
-<img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1464094669037370&ev=PageView&noscript=1"/>
-</noscript>
-<!-- END META PIXEL -->
-
 </head>
 
 <body>
-
-<div class="container">
-
-<h1>Subscribe Now</h1>
-
-<p>Visit our subscription service and continue.</p>
-
-<button class="subscribe-btn" id="subscribeBtn">
-SUBSCRIBE
-</button>
-
-</div>
-
-<script>
-document.getElementById('subscribeBtn')
-.addEventListener('click', function() {
-
-  if (typeof fbq === 'function') {
-    fbq('trackCustom', 'SubscribeButtonClick');
-  }
-
-  alert('Button click recorded for tracking.');
-
-});
-</script>
-
 </body>
 </html>
