@@ -51,28 +51,73 @@ p {
   padding: 16px;
   background: #087cff;
   color: white;
+  border: 0;
   border-radius: 10px;
-  text-decoration: none;
   font-size: 18px;
   font-weight: bold;
+  cursor: pointer;
 }
 
-.subscribe-btn:hover {
-  background: #0064d6;
+.subscribe-btn:disabled {
+  opacity: 0.6;
 }
 </style>
+
+<!-- META PIXEL -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){
+n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)
+}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+
+fbq('init', '1464094669037370');
+fbq('track', 'PageView');
+</script>
+<!-- END META PIXEL -->
+
 </head>
 
 <body>
 
 <div class="container">
-  <h1>Subscribe Now</h1>
-  <p>Click below to continue to our subscription service.</p>
 
-  <a href="#" class="subscribe-btn">
+  <h1>Subscribe Now</h1>
+
+  <p>
+    Continue to our subscription service.
+  </p>
+
+  <button
+    type="button"
+    class="subscribe-btn"
+    id="subscribeButton">
     SUBSCRIBE
-  </a>
+  </button>
+
 </div>
+
+<script>
+const button = document.getElementById('subscribeButton');
+
+button.addEventListener('click', function () {
+
+  if (button.disabled) return;
+
+  button.disabled = true;
+
+  if (typeof fbq === 'function') {
+    fbq('trackCustom', 'SubscribeButtonClick');
+  }
+
+  button.disabled = false;
+
+});
+</script>
 
 </body>
 </html>
