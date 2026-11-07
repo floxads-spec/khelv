@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Subscribe</title>
+<title>Subscribe Now</title>
 
 <style>
 * {
@@ -16,8 +16,8 @@
 body {
   min-height: 100vh;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   background: #0b0d16;
   color: white;
   font-family: Arial, sans-serif;
@@ -51,15 +51,15 @@ p {
   padding: 16px;
   background: #087cff;
   color: white;
-  border: 0;
+  border: none;
   border-radius: 10px;
   font-size: 18px;
   font-weight: bold;
   cursor: pointer;
 }
 
-.subscribe-btn:disabled {
-  opacity: 0.6;
+.subscribe-btn:hover {
+  background: #0064d6;
 }
 </style>
 
@@ -78,6 +78,11 @@ s.parentNode.insertBefore(t,s)
 fbq('init', '1464094669037370');
 fbq('track', 'PageView');
 </script>
+
+<noscript>
+<img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1464094669037370&ev=PageView&noscript=1"/>
+</noscript>
 <!-- END META PIXEL -->
 
 </head>
@@ -86,35 +91,25 @@ fbq('track', 'PageView');
 
 <div class="container">
 
-  <h1>Subscribe Now</h1>
+<h1>Subscribe Now</h1>
 
-  <p>
-    Continue to our subscription service.
-  </p>
+<p>Visit our subscription service and continue.</p>
 
-  <button
-    type="button"
-    class="subscribe-btn"
-    id="subscribeButton">
-    SUBSCRIBE
-  </button>
+<button class="subscribe-btn" id="subscribeBtn">
+SUBSCRIBE
+</button>
 
 </div>
 
 <script>
-const button = document.getElementById('subscribeButton');
-
-button.addEventListener('click', function () {
-
-  if (button.disabled) return;
-
-  button.disabled = true;
+document.getElementById('subscribeBtn')
+.addEventListener('click', function() {
 
   if (typeof fbq === 'function') {
     fbq('trackCustom', 'SubscribeButtonClick');
   }
 
-  button.disabled = false;
+  alert('Button click recorded for tracking.');
 
 });
 </script>
